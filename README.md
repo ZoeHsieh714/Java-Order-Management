@@ -107,8 +107,6 @@
 - データベース（MySQL/PostgreSQL）の基礎知識
 - Docker基礎知識（Week 7-8で学習）
 
-> 💡 **環境インストールガイド:** 開発環境のセットアップ方法は [ENVIRONMENT_SETUP.md](../ENVIRONMENT_SETUP.md) を参照してください
-
 ### 学習方法
 
 #### 📚 平日理論学習（火・木曜、30-60分）
