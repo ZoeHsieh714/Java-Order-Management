@@ -1,0 +1,36 @@
+HELP.md
+
+# Maven build files
+.mvn/
+
+# Gradle build files
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Compiled class files
+*.class
+/target/
+/build/
+
+# Log files
+*.log
+logs/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+.project
+.classpath
+.settings/
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# Secrets and environment files
+*.env
+application-*.properties

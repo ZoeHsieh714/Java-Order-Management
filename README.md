@@ -1,8 +1,8 @@
 # 🚀 Java + Spring Boot 上級プロフェッショナル学習計画（8週間）
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0+-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-21+-orange.svg)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3+-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
 > ECサイト注文管理システムを通じて、エンタープライズレベルのJava + Spring Boot開発を習得する8週間の集中学習プログラム
 
@@ -12,10 +12,10 @@
 
 ### 🎯 学習目標
 
-- **上級JPA**: 複雑な関連マッピング、動的クエリ、N+1問題の解決
-- **Spring Security**: JWT認証、ロールベースアクセス制御
-- **パフォーマンス最適化**: Redisキャッシュ、分散ロック、並行制御
-- **マイクロサービス**: RabbitMQ、イベント駆動アーキテクチャ
+- **上級JPA**: 複雑な関連マッピング、動的クエリ、N+1問題の解決、JdbcClient
+- **Spring Security**: JWT認証、OAuth 2.0基礎、ロールベースアクセス制御
+- **パフォーマンス最適化**: Virtual Threads、Redisキャッシュ、分散ロック、並行制御
+- **イベント駆動とコンテナ**: RabbitMQ、Docker基礎、イベント駆動アーキテクチャ
 
 ### ⏱️ 新しい学習スケジュール
 
@@ -42,11 +42,15 @@
 - エンティティ関連マッピング（一対多、多対多）
 - JPAライフサイクルコールバックと監査
 - Specification動的クエリ
+- **JdbcClient**（Spring Boot 3.3新機能）
 - トランザクション管理
+- N+1問題の解決戦略
 
 #### Week 3-4: Spring Securityと認証認可
 - JWT認証メカニズムの実装
+- **OAuth 2.0 / OpenID Connect基礎**（現代認証標準）
 - ロールベースアクセス制御（RBAC）
+- **RestClient**（RestTemplateの後継）
 - カスタム権限チェックロジック
 
 **Part 1 学習時間：約12.5時間**
@@ -56,15 +60,26 @@
 ### 📗 Part 2: Week 5-8 - パフォーマンス最適化とマイクロサービス
 
 #### Week 5-6: パフォーマンス最適化とキャッシュ
+- **Virtual Threads**（Java 21 + Spring Boot 3.3）
+  - Virtual Threads基礎概念
+  - Spring Boot 3.3での有効化
+  - 簡単なパフォーマンス比較
 - Redisキャッシュ統合
 - キャッシュ更新戦略
 - 分散ロックの実装
 - 並行制御とデッドロック回避
+- **オブザーバビリティ基礎**（Micrometer）
 
-#### Week 7-8: マイクロサービスとメッセージキュー
+#### Week 7-8: イベント駆動とコンテナ化
 - RabbitMQメッセージキュー
 - イベント駆動アーキテクチャ
+  - Event Sourcing概念
+  - CQRS パターン概要
 - 非同期処理とメッセージ信頼性
+- **Docker基礎**（Kubernetesへの準備）
+  - Dockerfileの作成
+  - Docker Composeローカル環境
+  - 基本的なコンテナ操作
 - 総合実戦プロジェクト
 
 **Part 2 学習時間：約14時間**
@@ -75,9 +90,9 @@
 
 ```
 .
-├── src　　　　　　　　　　　　　             # 実装ソース(未)
+├── src　　　　　　　　　　　　　       # 実装ソース(未)
 ├── ...                                     
-└── README.md                               # このファイル
+└── README.md                         # このファイル
 ```
 
 ---
@@ -86,10 +101,13 @@
 
 ### 前提条件
 
-- Java 17以上
-- Spring Boot 3.0以上の基礎知識
+- Java 21以上（Virtual Threads対応）
+- Spring Boot 3.3以上の基礎知識
 - 基本的なJPA/Hibernateの理解
 - データベース（MySQL/PostgreSQL）の基礎知識
+- Docker基礎知識（Week 7-8で学習）
+
+> 💡 **環境インストールガイド:** 開発環境のセットアップ方法は [ENVIRONMENT_SETUP.md](../ENVIRONMENT_SETUP.md) を参照してください
 
 ### 学習方法
 
@@ -140,11 +158,11 @@
 
 ```
 Backend:
-├── Java 17+
-├── Spring Boot 3.0+
-├── Spring Data JPA
-├── Spring Security
-├── JWT
+├── Java 21+ (Virtual Threads)
+├── Spring Boot 3.3+
+├── Spring Data JPA + JdbcClient
+├── Spring Security (JWT + OAuth 2.0)
+├── RestClient
 └── Lombok
 
 Database:
@@ -154,9 +172,15 @@ Database:
 Message Queue:
 └── RabbitMQ
 
+Containerization:
+├── Docker
+└── Docker Compose
+
+Observability:
+└── Micrometer
+
 Tools:
 ├── Maven/Gradle
-├── Docker
 └── Postman/JMeter
 ```
 
@@ -187,23 +211,30 @@ graph LR
 ### JPA上級
 - [ ] 複雑な関連マッピングの実装
 - [ ] 動的クエリの構築
+- [ ] **JdbcClientの使用** (Spring Boot 3.3)
 - [ ] N+1問題の解決
 - [ ] 楽観的/悲観的ロックの使用
 
 ### Spring Security
 - [ ] JWT認証の実装
+- [ ] **OAuth 2.0 / OpenID Connect基礎理解**
+- [ ] **RestClientの使用** (RestTemplateの後継)
 - [ ] ロールベースアクセス制御
 - [ ] カスタム権限チェック
 
 ### パフォーマンス最適化
+- [ ] **Virtual Threadsの理解と有効化** (Java 21)
 - [ ] Redisキャッシュの実装
 - [ ] 分散ロックの使用
 - [ ] 並行制御の実装
+- [ ] **Micrometer基礎メトリクス**
 
-### マイクロサービス
+### イベント駆動とコンテナ
 - [ ] RabbitMQの使用
 - [ ] イベント駆動アーキテクチャの実装
+- [ ] **Event Sourcing / CQRS概念理解**
 - [ ] 非同期処理の実装
+- [ ] **Docker基礎** (Dockerfile, Docker Compose)
 
 ---
 
@@ -227,24 +258,80 @@ graph LR
 
 本学習計画完了後、以下のトピックに進むことをお勧めします：
 
-1. **マイクロサービスアーキテクチャ**
+### 📘 推奨：上級クラウドネイティブ・マイクロサービス学習計画（12週間）
+
+本計画で学んだ基礎知識を活かして、さらに上級のクラウドネイティブアーキテクチャを習得できます。
+
+#### 本計画との接続
+
+```yaml
+基礎課程（8週間） → 上級課程（12週間）
+
+Week 1-2 (JPA + JdbcClient) → Week 1-4 (マイクロサービス設計)
+Week 3-4 (JWT + OAuth基礎) → Week 3-4 (API Gateway認証)
+Week 5-6 (Virtual Threads) → Week 7-8 (Kubernetes性能最適化)
+Week 5-6 (Redis) → Week 5-6 (分散キャッシュ戦略)
+Week 7-8 (Docker基礎) → Week 5-8 (Kubernetes完全習得)
+Week 7-8 (RabbitMQ) → Week 9-10 (Apache Kafka)
+Week 7-8 (Event Sourcing概念) → Week 9-10 (イベント駆動完全実装)
+```
+
+#### 上級課程の内容
+
+1. **マイクロサービスアーキテクチャ（Week 1-4）**
    - Spring Cloud (Eureka, Config, Gateway)
-   - サービスメッシュ (Istio)
+   - サービス発見と負荷分散
+   - サーキットブレーカー (Resilience4j)
+   - 集中設定管理
 
-2. **コンテナ化とオーケストレーション**
-   - Docker
-   - Kubernetes
-   - CI/CDパイプライン
+2. **コンテナ化とオーケストレーション（Week 5-8）**
+   - Docker 完全習得
+   - Kubernetes コンテナオーケストレーション
+   - Helm パッケージ管理
+   - 自動スケーリングとローリングアップデート
 
-3. **ビッグデータと検索**
-   - Elasticsearch
-   - Apache Kafka
-   - MongoDB
+3. **イベント駆動とビッグデータ（Week 9-10）**
+   - Apache Kafka メッセージングシステム
+   - Kafka Streams ストリーム処理
+   - Elasticsearch 全文検索
+   - Saga 分散トランザクション
 
-4. **監視と運用**
-   - Prometheus + Grafana
-   - ELKスタック
-   - APM (Application Performance Monitoring)
+4. **オブザーバビリティとDevOps（Week 11-12）**
+   - Prometheus + Grafana 監視システム
+   - ELK Stack ログ管理
+   - OpenTelemetry 分散トレーシング
+   - CI/CD 自動化パイプライン
+
+### 🎯 学習の準備状況
+
+本計画完了後、以下のスキルを習得しているため、上級課程にスムーズに移行できます：
+
+- ✅ **Virtual Threads**: Kubernetes での高性能アプリケーション構築の基礎
+- ✅ **Docker 基礎**: コンテナオーケストレーションの前提知識
+- ✅ **OAuth 2.0 概念**: マイクロサービス認証の理解
+- ✅ **Event Sourcing/CQRS**: イベント駆動アーキテクチャの基礎
+- ✅ **Micrometer**: 完全な監視システム構築の出発点
+
+---
+
+## 🔗 その他の学習方向
+
+上級課程以外にも、以下の分野を深く学習できます：
+
+### サービスメッシュ
+- Istio
+- Linkerd
+- トラフィック管理とセキュリティ
+
+### クラウドプラットフォーム
+- AWS (EKS, MSK, RDS)
+- Azure (AKS, Event Hubs)
+- GCP (GKE, Pub/Sub)
+
+### 上級データ処理
+- Apache Flink (リアルタイムストリーム処理)
+- Apache Spark (ビッグデータバッチ処理)
+- ClickHouse (OLAP分析)
 
 ---
 
